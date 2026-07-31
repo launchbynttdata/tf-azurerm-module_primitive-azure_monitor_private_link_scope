@@ -15,6 +15,14 @@ import (
 )
 
 func TestMonitorPrivateLinkScoped(t *testing.T, ctx types.TestContext) {
+	testMonitorPrivateLinkScoped(t, ctx)
+}
+
+func TestComposableMonitorPrivateLinkScoped(t *testing.T, ctx types.TestContext) {
+	testMonitorPrivateLinkScoped(t, ctx)
+}
+
+func testMonitorPrivateLinkScoped(t *testing.T, ctx types.TestContext) {
 	subscriptionId := os.Getenv("ARM_SUBSCRIPTION_ID")
 	if len(subscriptionId) == 0 {
 		t.Fatalf("ARM_SUBSCRIPTION_ID environment variable is not set")

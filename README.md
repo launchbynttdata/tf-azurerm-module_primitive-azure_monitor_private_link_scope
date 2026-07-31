@@ -103,19 +103,13 @@ If `make check` target is successful, developer is good to commit the code to pr
 - runs `conftests`. `conftests` make sure `policy` checks are successful.
 - runs `terratest`. This is integration test suit.
 - runs `opa` tests
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.77 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.116.0 |
 
 ## Modules
 
@@ -132,19 +126,19 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Name of the Private Link Scope | `string` | n/a | yes |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource group name | `string` | n/a | yes |
 | <a name="input_ingestion_access_mode"></a> [ingestion\_access\_mode](#input\_ingestion\_access\_mode) | The ingestion access mode for the Azure Monitor Private Link Scope. | `string` | `null` | no |
-| <a name="input_query_access_mode"></a> [query\_access\_mode](#input\_query\_access\_mode) | The query access mode for the Azure Monitor Private Link Scope. | `string` | `null` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | Custom tags for the Private Link Scope | `map(string)` | `{}` | no |
 | <a name="input_linked_resource_ids"></a> [linked\_resource\_ids](#input\_linked\_resource\_ids) | Map of resources to associate with the Private Link Scope | `map(string)` | `{}` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name of the Private Link Scope | `string` | n/a | yes |
+| <a name="input_query_access_mode"></a> [query\_access\_mode](#input\_query\_access\_mode) | The query access mode for the Azure Monitor Private Link Scope. | `string` | `null` | no |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource group name | `string` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | Custom tags for the Private Link Scope | `map(string)` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | n/a |
 | <a name="output_private_link_scope_id"></a> [private\_link\_scope\_id](#output\_private\_link\_scope\_id) | n/a |
 | <a name="output_private_link_scope_name"></a> [private\_link\_scope\_name](#output\_private\_link\_scope\_name) | n/a |
 | <a name="output_private_link_scoped_service_ids"></a> [private\_link\_scoped\_service\_ids](#output\_private\_link\_scoped\_service\_ids) | n/a |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | n/a |
+<!-- END_TF_DOCS -->
