@@ -7,10 +7,6 @@ resource_names_map = {
     name       = "ampls"
     max_length = 80
   }
-  application_insights = {
-    name       = "appins"
-    max_length = 80
-  }
 }
 instance_env            = 0
 instance_resource       = 0

@@ -36,6 +36,19 @@ module "resource_group" {
   tags = merge(var.tags, { resource_name = module.resource_names["resource_group"].standard })
 }
 
+module "log_analytics_workspace" {
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/log_analytics_workspace/azurerm"
+  version = "~> 1.0"
+
+  name                = module.resource_names["log_analytics_workspace"].minimal_random_suffix
+  resource_group_name = module.resource_group.name
+  location            = var.location
+
+  tags = merge(var.tags, { resource_name = module.resource_names["log_analytics_workspace"].standard })
+
+  depends_on = [module.resource_group]
+}
+
 module "application_insights" {
   source  = "terraform.registry.launch.nttdata.com/module_primitive/application_insights/azurerm"
   version = "~> 1.0"
@@ -43,10 +56,11 @@ module "application_insights" {
   name                = module.resource_names["application_insights"].minimal_random_suffix
   resource_group_name = module.resource_group.name
   location            = var.location
+  workspace_id        = module.log_analytics_workspace.id
 
   tags = merge(var.tags, { resource_name = module.resource_names["application_insights"].standard })
 
-  depends_on = [module.resource_group]
+  depends_on = [module.resource_group, module.log_analytics_workspace]
 }
 
 module "monitor_private_link_scope" {
