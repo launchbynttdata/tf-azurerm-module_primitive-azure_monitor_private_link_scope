@@ -11,19 +11,23 @@
 // limitations under the License.
 
 output "resource_group_name" {
-  value = azurerm_monitor_private_link_scope.ampls.resource_group_name
+  description = "The name of the resource group containing the Azure Monitor Private Link Scope."
+  value       = azurerm_monitor_private_link_scope.ampls.resource_group_name
 }
 
 output "private_link_scope_id" {
-  value = azurerm_monitor_private_link_scope.ampls.id
+  description = "The resource ID of the Azure Monitor Private Link Scope."
+  value       = azurerm_monitor_private_link_scope.ampls.id
 }
 
 output "private_link_scope_name" {
-  value = azurerm_monitor_private_link_scope.ampls.name
+  description = "The name of the Azure Monitor Private Link Scope."
+  value       = azurerm_monitor_private_link_scope.ampls.name
 }
 
 
 output "private_link_scoped_service_ids" {
+  description = "The resource IDs of services linked to the Azure Monitor Private Link Scope."
   value = toset([
     for service in azurerm_monitor_private_link_scoped_service.service : service.id
   ])

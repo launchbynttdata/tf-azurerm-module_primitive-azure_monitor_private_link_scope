@@ -21,6 +21,7 @@ import (
 )
 
 const (
+	// Functional tests iterate through every example beneath this directory.
 	testConfigsExamplesFolderDefault = "../../examples"
 	infraTFVarFileNameDefault        = "test.tfvars"
 )

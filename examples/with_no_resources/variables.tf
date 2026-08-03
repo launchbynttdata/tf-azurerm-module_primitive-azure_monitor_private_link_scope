@@ -28,10 +28,6 @@ variable "resource_names_map" {
       name       = "ampls"
       max_length = 80
     }
-    application_insights = {
-      name       = "appins"
-      max_length = 80
-    }
   }
 }
 
@@ -108,7 +104,7 @@ variable "location" {
 }
 
 variable "tags" {
-  description = "Custom tags for the Redis cache"
+  description = "Custom tags for the example resources."
   type        = map(string)
   default     = {}
 }

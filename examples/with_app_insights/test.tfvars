@@ -11,6 +11,10 @@ resource_names_map = {
     name       = "appins"
     max_length = 80
   }
+  log_analytics_workspace = {
+    name       = "log"
+    max_length = 63
+  }
 }
 instance_env            = 0
 instance_resource       = 0

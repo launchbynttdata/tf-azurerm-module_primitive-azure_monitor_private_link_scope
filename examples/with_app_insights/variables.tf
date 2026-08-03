@@ -32,6 +32,10 @@ variable "resource_names_map" {
       name       = "appins"
       max_length = 80
     }
+    log_analytics_workspace = {
+      name       = "log"
+      max_length = 63
+    }
   }
 }
 
@@ -108,7 +112,7 @@ variable "location" {
 }
 
 variable "tags" {
-  description = "Custom tags for the Redis cache"
+  description = "Custom tags for the example resources."
   type        = map(string)
   default     = {}
 }

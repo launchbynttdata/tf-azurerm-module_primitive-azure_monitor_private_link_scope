@@ -12,7 +12,7 @@
 
 module "resource_names" {
   source  = "terraform.registry.launch.nttdata.com/module_library/resource_name/launch"
-  version = "~> 1.0"
+  version = "~> 2.0"
 
   for_each = var.resource_names_map
 
@@ -36,19 +36,6 @@ module "resource_group" {
   tags = merge(var.tags, { resource_name = module.resource_names["resource_group"].standard })
 }
 
-module "application_insights" {
-  source  = "terraform.registry.launch.nttdata.com/module_primitive/application_insights/azurerm"
-  version = "~> 1.0"
-
-  name                = module.resource_names["application_insights"].minimal_random_suffix
-  resource_group_name = module.resource_group.name
-  location            = var.location
-
-  tags = merge(var.tags, { resource_name = module.resource_names["application_insights"].standard })
-
-  depends_on = [module.resource_group]
-}
-
 module "monitor_private_link_scope" {
   source = "../../"
 
@@ -59,5 +46,5 @@ module "monitor_private_link_scope" {
 
   tags = merge(var.tags, { resource_name = module.resource_names["monitor_private_link_scope"].standard })
 
-  depends_on = [module.application_insights]
+  depends_on = [module.resource_group]
 }
