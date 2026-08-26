@@ -33,9 +33,9 @@ func testMonitorPrivateLinkScoped(t *testing.T, ctx types.TestContext) {
 		t.Fatalf("Unable to get credentials: %v\n", err)
 	}
 
-	resourceGroupName := terraform.Output(t, ctx.TerratestTerraformOptions(), "resource_group_name")
-	privateLinkScopeName := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_link_scope_name")
-	privateLinkScopeId := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_link_scope_id")
+	resourceGroupName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "resource_group_name")
+	privateLinkScopeName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "private_link_scope_name")
+	privateLinkScopeId := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "private_link_scope_id")
 
 	client := getPrivateLinkScopesClient(t, subscriptionId, cred)
 
